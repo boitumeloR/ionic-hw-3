@@ -1,0 +1,7 @@
+{
+  "name": "crud-homehork",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
