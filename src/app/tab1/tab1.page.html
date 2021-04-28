@@ -1,17 +1,36 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tab 1
-    </ion-title>
+    <ion-buttons slot="start">
+      <ion-menu-button autoHide="false"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Homework 03</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     <ion-toolbar>
-      <ion-title size="large">Tab 1</ion-title>
+      <ion-title size="large">Homework 03</ion-title>
     </ion-toolbar>
   </ion-header>
-
-  <app-explore-container name="Tab 1 page"></app-explore-container>
+  <h1>Users</h1>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of users">
+      <ion-item>
+        <ion-avatar class="ion-margin-end">
+          <img src="https://i.pinimg.com/originals/51/f6/fb/51f6fb256629fc755b8870c801092942.png">
+        </ion-avatar>
+        <ion-label>{{item.title}} {{item.firstName}} {{item.lastName}}</ion-label>
+      </ion-item>
+      <ion-item-options side="end">
+        <ion-item-option (click)="updateUser(item)">Update</ion-item-option>
+        <ion-item-option (click)="deleteUser(item)">Delete</ion-item-option>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button color="primary" (click)="addUser()" >
+      <ion-icon name="add-outline"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
 </ion-content>
